@@ -1,0 +1,210 @@
+<!-- === BEGIN HEADER === -->
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    <head>
+        <!-- Title -->
+        <title>Habitat - A Professional Bootstrap Template</title>
+        <!-- Meta -->
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <!-- Favicon -->
+        <link href="favicon.ico" rel="shortcut icon">
+        <!-- Bootstrap Core CSS -->
+        <link rel="stylesheet" href="assets/css/bootstrap.css" rel="stylesheet">
+        <!-- Template CSS -->
+        <link rel="stylesheet" href="assets/css/animate.css" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/nexus.css" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/responsive.css" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/custom.css" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/quizz.css" rel="stylesheet">
+        <div id="quiz" class="quiz-container"></div>
+        
+      
+        
+        <!-- Google Fonts-->
+        <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div id="body-bg">
+            <!-- Header -->
+            <div id="header">
+                <div class="container">
+                    <div class="row">
+                        <!-- Logo -->
+                        <div class="logo">
+                            <a href="index.html" title="">
+                                <img src="assets/img/logo.png" alt="Logo" />
+                            </a>
+                        </div>
+                        <!-- End Logo -->
+                    </div>
+                </div>
+            </div>
+            <!-- End Header -->
+            <!-- Top Menu -->
+            <div id="hornav" class="bottom-border-shadow">
+            </div>
+            <!-- End Top Menu -->
+
+            <!-- === END HEADER === -->
+            <!-- === BEGIN CONTENT === -->
+            <title>Questionário sobre o Tipo de Pele</title>
+</head>
+<body>
+
+<h1>Questionário sobre o Tipo de Pele</h1>
+
+<form id="skinQuizForm">
+    <h2>1. Como é que sentes a tua pele algumas horas depois de a lavar?</h2>
+    <input type="radio" name="q1" value="oily"> Oleosa<br>
+    <input type="radio" name="q1" value="dry"> Seca<br>
+    <input type="radio" name="q1" value="balanced"> Equilibrada/Normal<br>
+
+    <h2>2. Como é que sentes a tua pele depois de usares um gel de limpeza facial?</h2>
+    <input type="radio" name="q2" value="tight"> Seca/Demasiado apertada<br>
+    <input type="radio" name="q2" value="dry"> Seca<br>
+    <input type="radio" name="q2" value="comfortable"> Confortável<br>
+
+    <h2>3. Com que frequência tens manchas secas ou escamosas na tua pele?</h2>
+    <input type="radio" name="q3" value="rarely"> Raramente ou Nunca<br>
+    <input type="radio" name="q3" value="occasionally"> Ocasionalmente<br>
+    <input type="radio" name="q3" value="frequently"> Com Frequência<br>
+
+    <h2>4. Como reage a tua pele a cremes hidratantes?</h2>
+    <input type="radio" name="q4" value="oily"> Fica oleosa ou brilhante rapidamente<br>
+    <input type="radio" name="q4" value="hydrated"> Fica hidratada e confortável<br>
+    <input type="radio" name="q4" value="dry"> Não absorve facilmente o creme hidratante, fica seca após a aplicação<br>
+
+    <h2>5. Como reage a tua pele às mudanças de clima?</h2>
+    <input type="radio" name="q5" value="oily"> Torna-se mais oleosa<br>
+    <input type="radio" name="q5" value="dry"> Torna-se mais seca<br>
+    <input type="radio" name="q5" value="no_change"> Não apresenta mudanças significativas<br>
+
+    <h2>6. Costumas sentir alguma sensação de aperto ou desconforto depois de limpares o rosto?</h2>
+    <input type="radio" name="q6" value="yes"> Sim, frequentemente<br>
+    <input type="radio" name="q6" value="occasionally"> Ocasionalmente<br>
+    <input type="radio" name="q6" value="rarely"> Raramente ou nunca<br>
+
+    <input type="submit" value="Submeter">
+</form>
+
+<div id="result"></div>
+
+<script>
+document.getElementById("skinQuizForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevenir a submissão do formulário
+
+    // Obter as escolhas do utilizador
+    var q1 = document.querySelector('input[name="q1"]:checked').value;
+    var q2 = document.querySelector('input[name="q2"]:checked').value;
+    var q3 = document.querySelector('input[name="q3"]:checked').value;
+    var q4 = document.querySelector('input[name="q4"]:checked').value;
+    var q5 = document.querySelector('input[name="q5"]:checked').value;
+    var q6 = document.querySelector('input[name="q6"]:checked').value;
+
+    // Calcular o resultado com base nas escolhas
+    var result = "";
+    if (q1 === "oily" || q2 === "oily" || q4 === "oily" || q5 === "oily") {
+        result = "Provavelmente tem pele oleosa.";
+    } else if (q1 === "dry" || q2 === "dry" || q3 === "frequently" || q4 === "dry" || q5 === "dry") {
+        result = "Provavelmente tem pele seca.";
+    } else {
+        result = "Provavelmente tem pele mista.";
+    }
+
+    // Exibir o resultado
+    document.getElementById("result").textContent = result;
+});
+
+
+</script>
+
+<style>
+   body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333; 
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff; 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-top: 20px;
+    color: palevioletred; 
+}
+
+input[type="radio"] {
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff; 
+    background-color: palevioletred; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#result {
+    margin-top: 100000px;
+    padding: 30px;
+    width: 500px;
+    margin: 0 auto;
+    font-size: 30px;
+    text-align: center;
+    color: #333; 
+    background-color: white; 
+    border: 1px solid palevioletred; 
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+</style>
+
+</body>
+            <!-- === END CONTENT === -->
+            <!-- JS -->
+            
+            <script type="text/javascript" src="assets/js/jquery.min.js" type="text/javascript"></script>
+            <script type="text/javascript" src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+            <script type="text/javascript" src="assets/js/scripts.js"></script>
+            <!-- Isotope - Portfolio Sorting -->
+            <script type="text/javascript" src="assets/js/jquery.isotope.js" type="text/javascript"></script>
+            <!-- Mobile Menu - Slicknav -->
+            <script type="text/javascript" src="assets/js/jquery.slicknav.js" type="text/javascript"></script>
+            <!-- Animate on Scroll-->
+            <script type="text/javascript" src="assets/js/jquery.visible.js" charset="utf-8"></script>
+            <!-- Sticky Div -->
+            <script type="text/javascript" src="assets/js/jquery.sticky.js" charset="utf-8"></script>
+            <!-- Slimbox2-->
+            <script type="text/javascript" src="assets/js/slimbox2.js" charset="utf-8"></script>
+            <!-- Modernizr -->
+            <script src="assets/js/modernizr.custom.js" type="text/javascript"></script>
+            <!-- End JS -->
+            <script src="./assets/js/menus.js"></script>
+            <script src="./assets/js/login.js"></script>    
+        </div>
+    </body>
+</html>
+<!-- === END FOOTER === -->

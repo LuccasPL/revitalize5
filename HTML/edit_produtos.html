@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skincare Products</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="assets/css/edit_produtos.css" rel="stylesheet">
+   
+    
+    <style>
+        /* Basic styles for the form and table */
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Edição de Produtos</h1>
+    <form id="product-form">
+        <input type="hidden" id="product-id">
+        <label for="label">Label:</label>
+        <input type="text" id="label" name="label"><br><br>
+        <label for="brand">Brand:</label>
+        <input type="text" id="brand" name="brand"><br><br>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price"><br><br>
+        <label for="rank">Rank:</label>
+        <input type="number" id="rank" name="rank" step="0.1"><br><br>
+        <label for="ingredients">Ingredients (comma separated):</label>
+        <input type="text" id="ingredients" name="ingredients"><br><br>
+        <label for="combination">Combination:</label>
+        <input type="number" id="combination" name="combination"><br><br>
+        <label for="dry">Dry:</label>
+        <input type="number" id="dry" name="dry"><br><br>
+        <label for="normal">Normal:</label>
+        <input type="number" id="normal" name="normal"><br><br>
+        <label for="oily">Oily:</label>
+        <input type="number" id="oily" name="oily"><br><br>
+        <label for="sensitive">Sensitive:</label>
+        <input type="number" id="sensitive" name="sensitive"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <table id="products-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Label</th>
+                <th>Brand</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Rank</th>
+                <th>Ingredients</th>
+                <th>Combination</th>
+                <th>Dry</th>
+                <th>Normal</th>
+                <th>Oily</th>
+                <th>Sensitive</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script src="./assets/js/constants.js"></script>
+    <script src="./assets/js/edit_produtos.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!-- === BEGIN HEADER === -->
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    <head>
+        <!-- Title -->
+        <title>Product List</title>
+        <!-- Meta -->
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <!-- Favicon -->
+        <link href="favicon.ico" rel="shortcut icon">
+        <!-- Bootstrap Core CSS -->
+        <link rel="stylesheet" href="assets/css/bootstrap.css" rel="stylesheet">
+        <!-- Template CSS -->
+        <link rel="stylesheet" href="assets/css/animate.css" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/nexus.css" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/responsive.css" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/custom.css" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/fade_login.css" rel="stylesheet">
+        <!-- Google Fonts-->
+        <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300" rel="stylesheet" type="text/css">
+        <!-- Jquery para usar AJAX-->
+        <script src="./assets/js/jquery-3.6.0.min.js"></script>
+        <!-- endereço url dos serviços REST-->
+        <script src="./assets/js/constants.js"></script>
+    </head>
+    <body>
+        <div id="body-bg">
+            <!-- Header -->
+            <div id="header">
+                <div class="container">
+                    <div class="row">
+                        <!-- Logo -->
+                        <div class="logo">
+                            <a href="index.html" title="">
+                                <img src="assets/img/logo.png" alt="Logo" />
+                            </a>
+                        </div>
+                        <!-- End Logo -->
+                    </div>
+                </div>
+            </div>
+            <!-- End Header -->
+            <!-- Top Menu -->
+            <div id="hornav" class="bottom-border-shadow">
+            </div>
+            <!-- End Top Menu -->
+            <!-- === END HEADER === -->
+            <!-- === BEGIN CONTENT === -->
+            <div id="content">
+                <div class="container background-white">
+                    <div class="row margin-vert-30">
+                        <!-- Main Column -->
+                        <div class="col-md-12">
+                            <!-- Main Content -->
+                            <div class="headline">
+                                <h2>Produtos</h2>
+                            </div>
+                            
+                            <div id="searchInputs">
+                                <input type="text" id="searchLabel" placeholder="Search by label">
+                                <input type="text" id="searchBrand" placeholder="Search by brand">
+                                <input type="text" id="searchName" placeholder="Search by name">
+                                <input type="text" id="searchPrice" placeholder="Search by price">
+                                <input type="text" id="searchRank" placeholder="Search by rank">
+                                <input type="text" id="searchIngredients" placeholder="Search by ingredients">
+                                <input type="text" id="searchCombination" placeholder="Search by combination">
+                                <input type="text" id="searchDry" placeholder="Search by dry">
+                                <input type="text" id="searchNormal" placeholder="Search by normal">
+                                <input type="text" id="searchOily" placeholder="Search by oily">
+                                <input type="text" id="searchSensitive" placeholder="Search by sensitive">
+                            </div>
+                            
+                            
+                            <div class="row margin-bottom-20">
+                                <div class="col-md-8 col-md-offset-0">
+                                </div>
+                            </div>
+                  
+                            <p>
+                                <button id="searchButton" class="btn btn-primary">Search</button>
+                            </p>
+                            <ul id="productList"></ul>
+                        
+    
+                            <div>
+                                <label for="recordsPerPage">Records per page:</label>
+                                <select id="recordsPerPage">
+                                    <option value="10">10</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                            </div>
+                            <ul id="productList"></ul>
+                            <div id="paginationControls">
+                                <button id="prevPage" class="btn btn-primary">Previous</button>
+                                <span id="currentPage">1</span>
+                                <button id="nextPage" class="btn btn-primary">Next</button>
+                            </div>
+                            <style>
+                            body {
+                                font-family: Arial, sans-serif;
+                                background-color: #f8f9fa;
+                                color: #333;
+                                margin: 0;
+                                padding: 0;
+                            }
+                            
+                            
+                            /* Input field styling */
+                            #searchInputs input[type="text"] {
+                                margin: 10px 0;
+                                padding: 12px;
+                                border: none;
+                                border-radius: 10px;
+                                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                                font-size: 16px;
+                                background-color: #fff;
+                                transition: box-shadow 0.3s ease-in-out;
+                            }
+                            
+                            /* Input focus styling */
+                            #searchInputs input[type="text"]:focus {
+                                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+                                outline: none;
+                            }
+                            
+                            /* Search button styling */
+                            #searchButton {
+                                display: block;
+                                width: 100%;
+                                padding: 12px;
+                                margin-top: 20px;
+                                border: none;
+                                border-radius: 10px;
+                                background-color: palevioletred; /* Pink color */
+                                color: #fff;
+                                font-size: 16px;
+                                cursor: pointer;
+                                transition: background-color 0.3s ease, transform 0.3s ease;
+                            }
+                            
+                            /* Search button hover effect */
+                            #searchButton:hover {
+                                background-color: gray; /* Lighter pink on hover */
+                                transform: translateY(-2px);
+                            }
+                            
+                            /* Product list styling */
+                            #productList {
+                                list-style-type: none;
+                                padding: 0;
+                            }
+                            
+                            /* Product list item styling */
+                            #productList li {
+                                background-color: #fff;
+                                border-radius: 10px;
+                                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                                padding: 20px;
+                                margin-bottom: 10px;
+                                transition: transform 0.3s ease;
+                            }
+                            
+                            /* Product list item hover effect */
+                            #productList li:hover {
+                                transform: translateY(-2px);
+                            }
+
+                            #prevPage{
+                                background-color: palevioletred;
+                            }
+
+                            #nextPage{
+                                background-color: palevioletred;
+                            }
+
+                            
+                           </style>
+
+                            <script src="./assets/js/produtos.js"></script>
+                        </div>
+                    </div>         
+                </div>
+            </div>
+            <!-- === END CONTENT === -->
+
+            <!-- JS -->
+            
+           <!-- <script type="text/javascript" src="assets/js/jquery.min.js" type="text/javascript"></script>-->
+            <script type="text/javascript" src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+            <script type="text/javascript" src="assets/js/scripts.js"></script>
+            <!-- Isotope - Portfolio Sorting -->
+            <script type="text/javascript" src="assets/js/jquery.isotope.js" type="text/javascript"></script>
+            <!-- Mobile Menu - Slicknav -->
+            <script type="text/javascript" src="assets/js/jquery.slicknav.js" type="text/javascript"></script>
+            <!-- Animate on Scroll-->
+            <script type="text/javascript" src="assets/js/jquery.visible.js" charset="utf-8"></script>
+            <!-- Sticky Div -->
+            <script type="text/javascript" src="assets/js/jquery.sticky.js" charset="utf-8"></script>
+            <!-- Slimbox2-->
+            <script type="text/javascript" src="assets/js/slimbox2.js" charset="utf-8"></script>
+            <!-- Modernizr -->
+            <script src="assets/js/modernizr.custom.js" type="text/javascript"></script>
+            <!-- End JS -->
+            <script src="./assets/js/menus.js"></script>
+            <script src="./assets/js/login.js"></script>
+        </div>
+    </body>
+</html>
+<!-- === END FOOTER === -->

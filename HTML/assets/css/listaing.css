@@ -1,0 +1,28 @@
+/* Product list styling */
+#productList {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Product list item styling */
+#productList li {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Product list item hover effect */
+#productList li:hover {
+    transform: translateY(-2px);
+}
+
+#prevPage{
+    background-color: palevioletred;
+}
+
+#nextPage{
+    background-color: palevioletred;
+}

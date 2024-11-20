@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Insights - Sephora Portugal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/nexus.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="body-bg">
+        <!-- Header -->
+        <div id="header">
+            <div class="container">
+                <div class="row">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="assets/img/logo.png" alt="Logo" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Content -->
+        <div id="content" class="bottom-border-shadow">
+            <div class="container background-white bottom-border">
+                <div class="row margin-vert-30">
+                    <h1 class="text-center">Insights de Vendas - Sephora Portugal</h1>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <canvas id="salesChart"></canvas>
+                        </div>
+                        <div class="col-md-6">
+                            <canvas id="categoryChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div id="footer" class="background-grey">
+            <div class="container">
+                <div class="row">
+                    <p class="text-center">Sephora Portugal &copy; 2024</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const salesData = {
+            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio'],
+            datasets: [{
+                label: 'Vendas (€)',
+                data: [5000, 7000, 8000, 12000, 15000],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            }]
+        };
+        new Chart(document.getElementById('salesChart'), {
+            type: 'line',
+            data: salesData,
+        });
+
+        const categoryData = {
+            labels: ['Skincare', 'Maquiagem', 'Perfumes', 'Cabelos'],
+            datasets: [{
+                label: 'Vendas por Categoria (€)',
+                data: [4000, 3000, 2000, 1000],
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0']
+            }]
+        };
+        new Chart(document.getElementById('categoryChart'), {
+            type: 'doughnut',
+            data: categoryData,
+        });
+    </script>
+</body>
+</html>

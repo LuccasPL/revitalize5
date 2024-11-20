@@ -1,0 +1,142 @@
+body, h1, table, form, th, td {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    color: black;
+    padding: 20px;
+    padding: 10px; /* Adjust the padding to fit the content */
+    margin: 0;
+}
+
+/* PARA MEXER NA PARTE DO FORM DOS INGREDIENTES */
+h1 {
+    color: palevioletred;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    margin-bottom: 20px;
+}
+
+form {
+    background: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+
+form label {
+    font-weight: bold;
+    display: block;
+    font-size: larger;
+}
+
+form input[type="text"],
+form input[type="number"],
+form select{
+    width: calc(100% - 22px);
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 0.5px solid #9a9c9e;
+    border-radius: 10px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+form button {
+    border-radius: 10px;
+    padding: 15px;
+    width: calc(100% - 40px);
+    background-color: palevioletred;
+    border: none;
+    color: white;
+    text-transform: uppercase;
+    display: block;
+    font-weight: bolder;
+}
+
+form button:hover {
+    background-color: rgb(204, 144, 164);
+}
+
+/* PARA MEXER NA TABELA */
+#products-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+    border: 1px solid #dddddd;
+}
+
+#products-table thead {
+    background-color: palevioletred;
+    color: #ffffff;
+    padding: 15px;
+}
+
+#products-table thead th {
+    padding: 15px;
+    font-weight: bold;
+    text-align: left;
+}
+
+#products-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+#products-table tbody tr:nth-of-type(even) {
+    background-color: #f9f9f9;
+}
+
+#products-table tbody td {
+    padding: 15px;
+    color: #333333;
+}
+
+#products-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+#products-table tbody td.actions {
+    text-align: center;
+}
+
+
+
+@media screen and (max-width: 500px) {
+    body {
+        padding: 10px;
+    }
+
+    form button {
+        width: 100%;
+    }
+}
+
+button {
+    border-radius: 10px;
+    padding: 15px;
+    background-color: palevioletred;
+    border: none;
+    color: white;
+    display: block;
+
+}
+
+button:hover {
+    background-color: rgb(204, 144, 164);
+}
+
+
+
+
+
+

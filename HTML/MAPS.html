@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Localização - Sephora Portugal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/nexus.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.3/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.3/leaflet.css" />
+</head>
+<body>
+    <div id="body-bg">
+        <!-- Header -->
+        <div id="header">
+            <div class="container">
+                <div class="row">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="assets/img/logo.png" alt="Logo" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Content -->
+        <div id="content" class="bottom-border-shadow">
+            <div class="container background-white bottom-border">
+                <div class="row margin-vert-30">
+                    <h1 class="text-center">Localização das Lojas Sephora em Portugal</h1>
+                    <div id="map" style="height: 500px;"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div id="footer" class="background-grey">
+            <div class="container">
+                <div class="row">
+                    <p class="text-center">Sephora Portugal &copy; 2024</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const map = L.map('map').setView([39.5, -8], 6); // Central Portugal
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        const stores = [
+    {
+        name: {
+            city: 'Lisboa',
+            address: 'Avenida da Liberdade, 120',
+            phone: '+351 213 123 456'
+        },
+        coords: [38.7169, -9.139]
+    },
+    {
+        name: {
+            city: 'Porto',
+            address: 'Rua de Santa Catarina, 200',
+            phone: '+351 222 456 789'
+        },
+        coords: [41.1496, -8.611]
+    },
+    {
+        name: {
+            city: 'Faro',
+            address: 'Forum Algarve, Loja 45',
+            phone: '+351 289 123 987'
+        },
+        coords: [37.0194, -7.9308]
+    }
+];
+
+    stores.forEach(store => {
+        L.marker(store.coords).addTo(map).bindPopup(`
+            <b>${store.name.city}</b><br>
+            ${store.name.address}<br>
+            ${store.name.phone}
+        `);
+    });
+
+    </script>
+</body>
+</html>
